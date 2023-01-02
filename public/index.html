@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,8 +18,12 @@
             console.log("Perdimos comunicación con el Servidor");
         })
         socket.emit('mensaje', {nombre: 'Tomas'});
-        socket.on('mensaje', function(payload) {
+        socket.on('nuevo-mensaje', function( payload)  {
             console.log('Escuchando:', payload);
+        })
+        socket.on('active-bands', function( bands ){
+            console.clear();
+            console.table( bands );
         })
     </script>
 </body>
